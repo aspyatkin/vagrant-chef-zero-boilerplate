@@ -1,0 +1,35 @@
+vms:
+  dev:
+    box: aspyatkin/ubuntu-16.04-server-amd64
+    box_version: ~> 2.1.0
+    ssh_insert_key: no
+    name: dev.example.local
+    memory: 512
+    cpus: 1
+    hostname: dev.example.local
+    network:
+      private:
+        - ip: 172.16.0.11
+          netmask: 255.255.0.0
+    synced_folders:
+      - host: .
+        guest: /vagrant
+        opts:
+          disabled: yes
+  prod:
+    box: aspyatkin/ubuntu-16.04-server-amd64
+    box_version: ~> 2.1.0
+    ssh_insert_key: no
+    name: prod.example.local
+    memory: 512
+    cpus: 1
+    hostname: prod.example.local
+    network:
+      private:
+        - ip: 172.16.0.12
+          netmask: 255.255.0.0
+    synced_folders:
+      - host: .
+        guest: /vagrant
+        opts:
+          disabled: yes
