@@ -11,7 +11,7 @@ The example below describes how to setup a Vagrant environment with two virtual 
 - *nix shell
 - [Ruby](https://github.com/rbenv/rbenv) 2.5.x or later
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 5.2.x or later
-- [Vagrant](https://www.vagrantup.com/downloads.html) 2.0.x or later
+- [Vagrant](https://www.vagrantup.com/downloads.html) 2.1.x or later
 
 ## Setup
 
@@ -21,7 +21,9 @@ $ cd vagrant-chef-zero-boilerplate
 $ script/init
 ```
 
-The last command installs necessary Ruby gems along with [vagrant-helpers](https://github.com/aspyatkin/vagrant-helpers) plugin and initializes [Berkshelf](https://github.com/berkshelf/berkshelf) cookbook manager. It also creates a directory `.well-known` in your `$HOME`, downloads a default Vagrant private key and generates sample databag encryption keys.
+The last command installs necessary Ruby gems along with [vagrant-helpers](https://github.com/aspyatkin/vagrant-helpers) plugin and initializes [Berkshelf](https://github.com/berkshelf/berkshelf) cookbook manager. It also creates a directory `.well-known` in `$HOME`, downloads a default Vagrant private key and generates sample databag encryption keys.
+
+One may want to run `rm -rf .git` so as to start an infrastructure repository from scratch.
 
 ## Launch virtual machine instances
 
