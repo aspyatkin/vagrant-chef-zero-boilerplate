@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'chef', '~> 12.22.3'
-gem 'knife-zero', '~> 1.19.2'
-gem 'berkshelf', '~> 6.3.2'
-gem 'dotenv', '~> 2.4.0'
+gem 'chef'
+gem 'knife-zero'
+gem 'berkshelf'
+gem 'dotenv'
+
+gem 'rbnacl', '>= 3.2', '< 5.0'
+gem 'rbnacl-libsodium'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'

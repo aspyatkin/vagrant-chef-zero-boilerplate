@@ -21,7 +21,7 @@ $ cd vagrant-chef-zero-boilerplate
 $ script/init
 ```
 
-The last command installs necessary Ruby gems along with [vagrant-helpers](https://github.com/aspyatkin/vagrant-helpers) plugin and initializes [Berkshelf](https://github.com/berkshelf/berkshelf) cookbook manager.
+The last command installs necessary Ruby gems along with [vagrant-helpers](https://github.com/aspyatkin/vagrant-helpers) plugin and initializes [Berkshelf](https://github.com/berkshelf/berkshelf) cookbook manager. It also creates a directory `.well-known` in your `$HOME`, downloads a default Vagrant private key and generates sample databag encryption keys.
 
 ## Launch virtual machine instances
 
@@ -35,24 +35,16 @@ $ vagrant up bravo
 
 ## Establish SSH connection to virtual machine instances
 
-Download the [default Vagrant private key](https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant):
-
-```sh
-$ mkdir -p ~/.well-known
-$ wget -O ~/.well-known/vagrant_private_key https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant
-$ chmod 600 ~/.well-known/vagrant_private_key
-```
-
-Then configure SSH in `~/.ssh/config`:
+Configure SSH in `~/.ssh/config`:
 
 ```
 Host alfa.example.local
-  HostName 172.16.0.11
+  HostName 172.16.0.2
   User vagrant
   IdentityFile ~/.well-known/vagrant_private_key
 
 Host bravo.example.local
-  HostName 172.16.0.12
+  HostName 172.16.0.3
   User vagrant
   IdentityFile ~/.well-known/vagrant_private_key
 ```
@@ -76,15 +68,11 @@ $ script/knife environment create development
 Since encrypted data bags will be used, encryption keys must be generated in the following fashion (each environment must have a separate key):
 
 ```sh
-$ openssl rand -base64 512 | tr -d '\r\n' > ~/.well-known/chef_data_bag_secret_development
-$ chmod 600 ~/.well-known/chef_data_bag_secret_development
+$ openssl rand -base64 512 | tr -d '\r\n' > /path/to/secure/location/data_bag_secret
+$ chmod 600 /path/to/secure/location/data_bag_secret
 ```
 
-Settings and paths are stored in `.env` file. Default ones may be copied from a sample:
-
-```sh
-$ cp .example.env .env
-```
+Settings and paths are stored in `.env` file. Note that `script/init` call creates sample keys as well as `.env` file.
 
 Needless to say that a real **production** environment key should be never left unencrypted. Consider using encrypted containers which can be mounted as a system volume.
 
