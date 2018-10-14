@@ -40,12 +40,12 @@ $ vagrant up bravo
 Configure SSH in `~/.ssh/config`:
 
 ```
-Host alfa.example.local
+Host alfa.example
   HostName 172.16.0.2
   User vagrant
   IdentityFile ~/.well-known/vagrant_private_key
 
-Host bravo.example.local
+Host bravo.example
   HostName 172.16.0.3
   User vagrant
   IdentityFile ~/.well-known/vagrant_private_key
@@ -56,7 +56,7 @@ Host bravo.example.local
 Verify an instance is reachable via SSH:
 
 ```sh
-$ ssh alfa.example.local
+$ ssh alfa.example
 ```
 
 ## Configure Chef Zero
