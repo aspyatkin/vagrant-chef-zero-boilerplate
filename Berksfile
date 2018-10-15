@@ -1,3 +1,5 @@
+require './lib/helpers'
+
 source 'https://api.berkshelf.com'
 
-cookbook 'test', path: './local-cookbooks/test'
+local_cookbook 'test', './local-cookbooks/test'

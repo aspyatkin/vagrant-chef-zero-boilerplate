@@ -20,9 +20,9 @@ then
 else
   if [ "$KNIFE_NODE_DEFAULT_ENVIRONMENT" != "" ]
   then
-  	NODE_ENVIRONMENT="$KNIFE_NODE_DEFAULT_ENVIRONMENT"
+    NODE_ENVIRONMENT="$KNIFE_NODE_DEFAULT_ENVIRONMENT"
   else
-  	echo "Unspecified default environment!"
+    echo "Unspecified default environment!"
     exit 2
   fi
 fi
