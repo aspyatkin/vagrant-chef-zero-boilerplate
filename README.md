@@ -10,8 +10,8 @@ The example below describes how to setup a Vagrant environment with two virtual 
 
 - *nix shell
 - [Ruby](https://github.com/rbenv/rbenv) 2.5.x or later
-- [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 5.2.x or later
-- [Vagrant](https://www.vagrantup.com/downloads.html) 2.1.x or later
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 6.0.x or later
+- [Vagrant](https://www.vagrantup.com/downloads.html) 2.2.x or later
 
 ## Setup
 
