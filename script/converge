@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+if [ -f ".env" ]
+then
+  set -a
+  . $PWD/.env
+  set +a
+fi
+
 if [ "$1" != "" ]
 then
   NODE_NAME="$1"
@@ -13,4 +20,10 @@ then
   shift 1
 fi
 
-bundle exec knife zero converge "$@" "name:$NODE_NAME"
+DEFAULT_OPTS=""
+if [ "$KNIFE_NODE_DEFAULT_CONVERGE_OPTS" != "" ]
+then
+  DEFAULT_OPTS="$KNIFE_NODE_DEFAULT_CONVERGE_OPTS"
+fi
+
+bundle exec knife zero converge "$DEFAULT_OPTS" "$@" "name:$NODE_NAME"
