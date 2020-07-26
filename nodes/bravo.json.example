@@ -1,0 +1,15 @@
+{
+  "name": "bravo",
+  "chef_environment": "production",
+  "normal": {
+    "knife_zero": {
+      "host": "bravo.example"
+    }
+  },
+  "automatic": {
+    "fqdn": "bravo.example"
+  },
+  "run_list": [
+    "recipe[test::default]"
+  ]
+}

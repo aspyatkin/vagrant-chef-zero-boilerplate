@@ -1,7 +1,7 @@
 vms:
   alfa:
-    box: aspyatkin/ubuntu-18.04-server
-    box_version: ~> 1.4.0
+    box: aspyatkin/ubuntu-20.04-server
+    box_version: ~> 1.0.0
     name: alfa.example
     memory: 512
     cpus: 1
@@ -18,8 +18,8 @@ vms:
     other:
       ssh.insert_key: no
   bravo:
-    box: aspyatkin/ubuntu-18.04-server
-    box_version: ~> 1.4.0
+    box: aspyatkin/ubuntu-20.04-server
+    box_version: ~> 1.0.0
     name: bravo.example
     memory: 512
     cpus: 1
